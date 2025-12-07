@@ -1,0 +1,41 @@
+###
+# Helix Editor config
+###
+
+# :config-open
+# Linux and Mac: ~/.config/helix/config.toml
+# Windows: %AppData%\helix\config.toml
+
+# Theme list: https://helix-editor.vercel.app/reference/list-of-themes
+theme = "dark_plus"
+
+[editor]
+# line-number = "relative"
+color-modes = true
+cursorline = true
+trim-final-newlines = true
+trim-trailing-whitespace = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.auto-save]
+focus-lost = true
+after-delay.enable = true
+auto-save.after-delay.timeout = 1000
+
+# https://docs.helix-editor.com/editor.html#editorfile-picker-section
+[editor.file-picker]
+git-ignore = false
+git-exclude = false
+git-global = false
+hidden = false
+ignore = false
+
+# https://docs.helix-editor.com/keymap.html
+# https://docs.helix-editor.com/commands.html
+[keys.normal]
+C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
