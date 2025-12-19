@@ -19,5 +19,16 @@
         
         "ctrl-j": "editor::MoveLineDown"
       }
-  }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-n": "workspace::NewFile"
+    }
+  },
+  {
+   "bindings": {
+    "ctrl-n": "workspace::NewFile"
+   }
+  },
 ]
