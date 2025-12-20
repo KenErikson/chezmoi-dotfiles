@@ -17,7 +17,7 @@
   "theme": {
     "mode": "dark",
     "light": "Ayu Dark",
-    "dark": "VSCode Dark Modern"
+    "dark": "Carbonfox"
   },
   "autosave": {
     "after_delay": {
@@ -25,6 +25,6 @@
     }
   },
   "file_types": {
-    "Shell Script": ["*.conf"]  
+    "Shell Script": ["*.conf", "config", "env", "default", ".env"]  
   }
 }

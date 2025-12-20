@@ -31,4 +31,4 @@ keybind = super+control+shift+alt+arrow_left=resize_split:left,100
 keybind = super+control+shift+alt+arrow_right=resize_split:right,100
 
 # Slowdown mouse scrolling
-mouse-scroll-multiplier = 5.0
+# mouse-scroll-multiplier = 1.2
