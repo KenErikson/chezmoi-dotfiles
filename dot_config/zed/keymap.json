@@ -31,4 +31,22 @@
     "ctrl-n": "workspace::NewFile"
    }
   },
+  {
+   "context": "(VimControl && !menu)",
+   "bindings": {
+    "ctrl-f": null
+   }
+  },
+  {
+   "context": "vim_mode == literal",
+   "bindings": {
+    "ctrl-f": null
+   }
+  },
+  {
+   "context": "(Editor)",
+   "bindings": {
+    "ctrl-f": "buffer_search::Deploy"
+   }
+  }
 ]

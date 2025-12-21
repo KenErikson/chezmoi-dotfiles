@@ -7,6 +7,11 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "diagnostics": {
+    "inline": {
+      "enabled": true
+    }
+  },
   "buffer_font_size": 11.0,
   "base_keymap": "JetBrains",
   "telemetry": {
@@ -26,5 +31,8 @@
   },
   "file_types": {
     "Shell Script": ["*.conf", "config", "env", "default", ".env"]  
+  },
+  "vim": {
+    "use_system_clipboard": "never" 
   }
 }
