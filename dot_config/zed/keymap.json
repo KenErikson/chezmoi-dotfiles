@@ -7,18 +7,18 @@
 // from the command palette.
 [
   {
-   "context": "Editor && vim_mode == insert",
+    "context": "Editor && vim_mode == insert",
     "bindings": {
       "j k": "vim::NormalBefore"
     }
   },
   {
-      "context": "VimControl && !menu",
-      "bindings": {
-        "ctrl-k": "editor::MoveLineUp",
-        
-        "ctrl-j": "editor::MoveLineDown"
-      }
+    "context": "VimControl && !menu",
+    "bindings": {
+      "ctrl-k": "editor::MoveLineUp",
+
+      "ctrl-j": "editor::MoveLineDown"
+    }
   },
   {
     "context": "Editor",
@@ -27,26 +27,45 @@
     }
   },
   {
-   "bindings": {
-    "ctrl-n": "workspace::NewFile"
-   }
+    "bindings": {
+      "ctrl-n": "workspace::NewFile"
+    }
   },
   {
-   "context": "(VimControl && !menu)",
-   "bindings": {
-    "ctrl-f": null
-   }
+    "context": "(VimControl && !menu)",
+    "bindings": {
+      "ctrl-f": null
+    }
   },
   {
-   "context": "vim_mode == literal",
-   "bindings": {
-    "ctrl-f": null
-   }
+    "context": "vim_mode == literal",
+    "bindings": {
+      "ctrl-f": null
+    }
   },
   {
-   "context": "(Editor)",
-   "bindings": {
-    "ctrl-f": "buffer_search::Deploy"
-   }
+    "context": "vim_mode == literal",
+    "bindings": {
+      "ctrl-r": null
+    }
+  },
+  {
+    "context": "(Editor)",
+    "bindings": {
+      "ctrl-f": "buffer_search::Deploy"
+    }
+  },
+  {
+    "context": "(Editor)",
+    "bindings": {
+      "ctrl-r": "buffer_search::DeployReplace"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "tab": "editor::Indent",
+      "shift-tab": "editor::Outdent"
+    }
   }
 ]

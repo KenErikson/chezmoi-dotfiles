@@ -12,6 +12,9 @@
       "enabled": true
     }
   },
+  "buffer_font_features": {
+    "calt": false
+  },
   "buffer_font_size": 11.0,
   "base_keymap": "JetBrains",
   "telemetry": {
@@ -24,15 +27,12 @@
     "light": "Ayu Dark",
     "dark": "Carbonfox"
   },
-  "autosave": {
-    "after_delay": {
-      "milliseconds": 500
-    }
-  },
+  "autosave": "on_focus_change",
+  "format_on_save": "on",
   "file_types": {
-    "Shell Script": ["*.conf", "config", "env", "default", ".env"]  
+    "Shell Script": ["*.conf", "config", "env", "default", ".env"]
   },
   "vim": {
-    "use_system_clipboard": "never" 
+    "use_system_clipboard": "never"
   }
 }

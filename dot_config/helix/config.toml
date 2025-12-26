@@ -39,3 +39,5 @@ ignore = false
 [keys.normal]
 C-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 C-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+# Map Cmd+C to "yank to system clipboard"
+"Cmd-c" = "yank_to_clipboard"
