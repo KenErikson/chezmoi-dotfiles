@@ -1,0 +1,257 @@
+# Place a copy of this config to ~/.aerospace.toml
+# After that, you can edit ~/.aerospace.toml to your liking
+
+# Config version for compatibility and deprecations
+# Fallback value (if you omit the key): config-version = 1
+config-version = 2
+
+# You can use it to add commands that run after AeroSpace startup.
+# Available commands : https://nikitabobko.github.io/AeroSpace/commands
+after-startup-command = [
+    'exec-and-forget open -a "Slack"',
+    'exec-and-forget open -a "Zen"', # Change to just "Zen" if that's the app file name
+    # 'exec-and-forget open -a "Bitwarden"',
+    'exec-and-forget open -a "IntelliJ IDEA"', # Change if you use a specific version like "IntelliJ IDEA Ultimate"
+    'exec-and-forget open -a "Visual Studio Code"', # Assuming 'Code' is VS Code
+    'exec-and-forget open -n -a Ghostty --args -e zsh -c "nvim; exec zsh"',
+    'exec-and-forget borders active_color=0xff00ff00 inactive_color=0x00000000 width=5.0',
+
+    'workspace Z', # Switches the secondary monitor to Z
+    'workspace S'  # Switches the main monitor to S (leaving your mouse/focus here)
+]
+
+# Start AeroSpace at login
+start-at-login = true
+
+# Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+# See: https://nikitabobko.github.io/AeroSpace/guide#layouts
+# The 'accordion-padding' specifies the size of accordion padding
+# You can set 0 to disable the padding feature
+accordion-padding = 30
+
+# Possible values: tiles|accordion
+default-root-container-layout = 'tiles'
+
+# Possible values: horizontal|vertical|auto
+# 'auto' means: wide monitor (anything wider than high) gets horizontal orientation,
+#               tall monitor (anything higher than wide) gets vertical orientation
+default-root-container-orientation = 'auto'
+
+# Mouse follows focus when focused monitor changes
+# Drop it from your config, if you don't like this behavior
+# See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
+# See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
+# Fallback value (if you omit the key): on-focused-monitor-changed = []
+#on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+#on-focus-changed = ['move-mouse window-lazy-center']
+
+# You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
+# Useful if you don't use this macOS feature, but accidentally hit cmd-h or cmd-alt-h key
+# Also see: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
+automatically-unhide-macos-hidden-apps = false
+
+# List of workspaces that should stay alive even when they contain no windows,
+# even when they are invisible.
+# This config version is only available since 'config-version = 2'
+# Fallback value (if you omit the key): persistent-workspaces = []
+persistent-workspaces = ["A", "B",
+    "Z", # Zen
+    "S", # Slac
+    "E", # IntelliJ
+    "C", # Code 
+    "T" # Terminal 
+]
+
+# A callback that runs every time binding mode changes
+# See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
+# See: https://nikitabobko.github.io/AeroSpace/commands#mode
+on-mode-changed = []
+
+# Possible values: (qwerty|dvorak|colemak)
+# See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
+[key-mapping]
+    preset = 'qwerty'
+
+# Gaps between windows (inner-*) and between monitor edges (outer-*).
+# Possible values:
+# - Constant:     gaps.outer.top = 8
+# - Per monitor:  gaps.outer.top = [{ monitor.main = 16 }, { monitor."some-pattern" = 32 }, 24]
+#                 In this example, 24 is a default value when there is no match.
+#                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
+#                 See:
+#                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
+[gaps]
+    inner.horizontal = 8
+    inner.vertical =   8
+    outer.left =       8
+    outer.bottom =     8
+    outer.top =        8
+    outer.right =      8
+
+# 'main' binding mode declaration
+# See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
+# 'main' binding mode must be always presented
+# Fallback value (if you omit the key): mode.main.binding = {}
+[mode.main.binding]
+
+    # All possible keys:
+    # - Letters.        a, b, c, ..., z
+    # - Numbers.        0, 1, 2, ..., 9
+    # - Keypad numbers. keypad0, keypad1, keypad2, ..., keypad9
+    # - F-keys.         f1, f2, ..., f20
+    # - Special keys.   minus, equal, period, comma, slash, backslash, quote, semicolon,
+    #                   backtick, leftSquareBracket, rightSquareBracket, space, enter, esc,
+    #                   backspace, tab, pageUp, pageDown, home, end, forwardDelete,
+    #                   sectionSign (ISO keyboards only, european keyboards only)
+    # - Keypad special. keypadClear, keypadDecimalMark, keypadDivide, keypadEnter, keypadEqual,
+    #                   keypadMinus, keypadMultiply, keypadPlus
+    # - Arrows.         left, down, up, right
+
+    # All possible modifiers: cmd, alt, ctrl, shift
+
+    # All possible commands: https://nikitabobko.github.io/AeroSpace/commands
+
+    # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
+    # You can uncomment the following lines to open up terminal with alt + enter shortcut
+    # (like in i3)
+    # alt-enter = '''exec-and-forget osascript -e '
+    # tell application "Terminal"
+    #     do script
+    #     activate
+    # end tell'
+    # '''
+
+    # See: https://nikitabobko.github.io/AeroSpace/commands#layout
+    alt-slash = 'layout tiles horizontal vertical'
+    alt-comma = 'layout accordion horizontal vertical'
+
+    # See: https://nikitabobko.github.io/AeroSpace/commands#focus
+    alt-h = 'focus left'
+    alt-j = 'focus down'
+    alt-k = 'focus up'
+    alt-l = 'focus right'
+
+    # See: https://nikitabobko.github.io/AeroSpace/commands#move
+    alt-shift-h = 'move left'
+    alt-shift-j = 'move down'
+    alt-shift-k = 'move up'
+    alt-shift-l = 'move right'
+
+    # See: https://nikitabobko.github.io/AeroSpace/commands#resize
+    alt-minus = 'resize smart -50'
+    alt-equal = 'resize smart +50'
+
+    # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
+
+# Workspace Navigation (Mapped mnemonically to your letters)
+    alt-a = 'workspace A' 
+    alt-b = 'workspace B'
+    alt-c = 'workspace C'
+    alt-e = 'workspace E'
+    alt-s = 'workspace S'
+    alt-z = 'workspace Z'
+    alt-t = 'workspace T'
+
+    alt-shift-a = ['move-node-to-workspace A', 'workspace A']
+    alt-shift-b = ['move-node-to-workspace B', 'workspace B']
+    alt-shift-c = ['move-node-to-workspace C', 'workspace C']
+    alt-shift-e = ['move-node-to-workspace E', 'workspace E']
+    alt-shift-s = ['move-node-to-workspace S', 'workspace S']
+    alt-shift-z = ['move-node-to-workspace Z', 'workspace Z']
+    alt-shift-t = ['move-node-to-workspace T', 'workspace T']
+
+    # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
+    alt-tab = 'workspace-back-and-forth'
+    # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
+    alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+
+    # See: https://nikitabobko.github.io/AeroSpace/commands#mode
+    alt-shift-semicolon = 'mode service'
+
+    alt-shift-f = ['layout floating tiling', 'move-mouse window-force-center']
+
+# 'service' binding mode declaration.
+# See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
+[mode.service.binding]
+    esc = ['reload-config', 'mode main']
+    r = ['flatten-workspace-tree', 'mode main'] # reset layout
+    f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
+    backspace = ['close-all-windows-but-current', 'mode main']
+
+    # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
+    #s = ['layout sticky tiling', 'mode main']
+
+    alt-shift-h = ['join-with left', 'mode main']
+    alt-shift-j = ['join-with down', 'mode main']
+    alt-shift-k = ['join-with up', 'mode main']
+    alt-shift-l = ['join-with right', 'mode main']
+
+[workspace-to-monitor-force-assignment]
+# Main screen workspaces
+A = ['main']
+B = ['secondary','main']
+
+# "Secondary screen" workspaces (Falls back to main if disconnected)
+# We will use 'Z' for Zen Browser and 'S' for Slack
+Z = ['secondary', 'main'] 
+S = ['main']
+
+# ==========================================
+# Floating Window Rules
+# ==========================================
+
+# Zen Browser Popups (Catches any Zen window with "Extension:" in the title)
+[[on-window-detected]]
+if.app-name-regex-substring = 'Zen'
+if.window-title-regex-substring = 'Extension:'
+check-further-callbacks = true
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Zen'
+if.window-title-regex-substring = 'Bitwarden'
+check-further-callbacks = true
+run = 'layout floating'
+
+# Bitwarden never tiles
+[[on-window-detected]]
+if.app-name-regex-substring = 'Bitwarden'
+run = ['layout floating', 'move-node-to-workspace A']
+
+# ==========================================
+# App Routing Rules
+# ==========================================
+
+# Zen Browser main windows go to Workspace Z
+[[on-window-detected]]
+if.app-name-regex-substring = 'Zen'
+run = 'move-node-to-workspace Z'
+
+# Slack goes to Workspace S
+[[on-window-detected]]
+if.app-name-regex-substring = 'Slack'
+run = 'move-node-to-workspace S'
+
+# IntelliJ (Floats AND moves to Workspace E)
+[[on-window-detected]]
+if.app-id = 'com.jetbrains.intellij' # Change to 'com.jetbrains.intellij.ce' if using Community Edition
+check-further-callbacks = true
+run = ['move-node-to-workspace E', 'layout accordion']
+
+# VS Code (Tiles normally, moves to Workspace C)
+[[on-window-detected]]
+if.app-id = 'com.microsoft.VSCode'
+run = 'move-node-to-workspace C'
+
+# Neovim via Ghostty (Moves to Workspace T)
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = 'move-node-to-workspace T'
+
+[[on-window-detected]]
+if.app-id = 'com.googlecode.iterm2'
+if.window-title-regex-substring = 'Aeroterm' # Make sure your iTerm profile sets this title
+run = 'layout floating'
